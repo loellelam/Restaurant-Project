@@ -1,0 +1,18 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <script>
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() { //do this function when a certain criteria is met
+        if (this.readyState == 4 && this.status == 200) { //"this" refers to the function we are calling; 4 is ready; 200 is ok
+          var mydata = JSON.parse(this.responseText); //the json file that we get will be saved as mydata
+          window.alert(mydata.name); //this line is how you call things
+        }
+      };
+      xmlhttp.open("GET","json.json",true); //get and open the json file
+      xmlhttp.send(); //send the file to the server
+    </script>
+  </body>
+</html>
