@@ -1,0 +1,16 @@
+{
+  "bento": [
+    {
+      "type": "salmon",
+      "price": 7.79,
+      "ingredients": [
+        "rice",
+        "ume",
+        "lemon",
+        "gobo",
+        "ube",
+        "edamame"
+      ]
+    }
+  ]
+}
