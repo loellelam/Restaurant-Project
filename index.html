@@ -23,7 +23,7 @@
         background-color: #ff99f9;
         /*position: fixed;*/
       }
-      .bottom {
+      .dollarSign {
         display: inline;
       }
     </style>
@@ -33,7 +33,7 @@
     <div id="divOne">
       <h1 id="nameOne"></h1>
       <p id="descripOne"></p>
-      <p>$</p><p id="priceOne"></p>
+      <p>$</p><p class="dollarSign" id="priceOne"></p>
       <input type="number" min="0" id="inputOne">
       <button id="buyOne" onclick="orderOne()">Order</button>
     </div>
@@ -65,13 +65,13 @@
     </div>
     
     <div id="bottomNavBar">
-      <h2 class="bottom">Subtotal: $</h2><h2 class="bottom" id="showSubtotal">0.00</h2>
+      <h2 class="dollarSign">Subtotal: $</h2><h2 class="dollarSign" id="showSubtotal">0.00</h2>
       <br>
-      <h3 class="bottom">Tax: $</h3><h3 class="bottom" id="showTax">0.00</h3>
+      <h3 class="dollarSign">Tax: $</h3><h3 class="dollarSign" id="showTax">0.00</h3>
       <br>
-      <h2 class="bottom">Total: $</h2><h2 class="bottom" id="showTotal">0.00</h2>
+      <h2 class="dollarSign">Total: $</h2><h2 class="dollarSign" id="showTotal">0.00</h2>
       <br>
-      <button class="bottom">Proceed to Checkout</button>
+      <button class="dollarSign">Proceed to Checkout</button>
     </div>
     
     <script src="restaurant.js"></script>
