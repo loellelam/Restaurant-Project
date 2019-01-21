@@ -15,24 +15,22 @@ xmlhttp.onreadystatechange = function() { //do this function when a certain crit
 xmlhttp.open("GET","restaurant.json",true); //get and open the json file
 xmlhttp.send(); //send the file to the server
 
-//Display running total of cost-----------------------------------------------------------------------------------------------------------------------------------------------------
+//Local Storage------------------------------------------------------------------------------------------------------------------------------------------------------------------
 localStorage.clear();
 localStorage.setItem("runningTotal", 0);
 localStorage.setItem("tax", 0);
 localStorage.setItem("total", 0);
 
-function calcTotals() {
-  window.alert("hi");
-}
-
-function orderOne() {
+//Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
+function dishOne() {
   var qty = document.getElementById('inputOne').value; //takes user input
   document.getElementById('inputOne').value = ""; //clear input box
-  //var basePrice = document.getElementById('priceOne').innerHTML;
+  var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
+  
   if (qty >= 0) { //verify user's input
     //subtotal
-    //var orderThis = qty * basePrice; //cost of ordered item
-    var orderThis = qty * 2; //cost of ordered item
+    var orderThis = qty * basePrice; //cost of ordered item
+    //var orderThis = qty * 2; //cost of ordered item
     var getRunningTotal = Number(localStorage.getItem("runningTotal")); //get runningTotal from localStorage
     var newRunningTotal = (getRunningTotal + orderThis).toFixed(2); //calculate subtotal
     localStorage.setItem("runningTotal", newRunningTotal); //save subtotal into localStorage
@@ -53,10 +51,11 @@ function orderOne() {
   }
 }
 
-function orderTwo() {
+function dishTwo() {
   var qty = document.getElementById('inputTwo').value; //takes user input
   document.getElementById('inputTwo').value = ""; //clear input box
   var basePrice = document.getElementById('priceTwo').innerHTML; //get price of item
+  
   if (qty >= 0) { //verify user's input
     //subtotal
     var orderThis = qty * basePrice; //cost of ordered item
