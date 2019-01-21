@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <style>
+      #divOne {
+        width: 49%;
+        height: 300px;
+        background-image: url('friedRice.jpg');
+        background-size: 100%;
+        border: solid;
+        float: left;
+      }
+      #divTwo {
+        width: 49%;
+        height: 300px;
+        background-image: url('friedRice.jpg');
+        background-size: 100%;
+        border: solid;
+        float: right;
+      }
+      #bottomNavBar {
+        width: 100%;
+        height: 70px;
+        background-color: #ff99f9;
+        /*position: fixed;*/
+      }
+      .bottom {
+        padding-bottom: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Someone's Restaurant</h1>
+    <div id="divOne">
+      <h1>Fried Rice</h1>
+      <p id="descripOne">Fried Rice with stuff in it.</p>
+      <p id="priceOne">$9.39</p>
+      <input type="number" min="0">
+      <button id="buyFriedRice">Order</button>
+    </div>
+    <div id="divTwo">
+      <h1>Fried Noodles</h1>
+      <p id="descripOne">Fried Noodles with stuff in it.</p>
+      <p id="priceOne">$9.55</p>
+      <input type="number" min="0">
+      <button id="buyFriedNoodles">Fried Noodles</button>
+    </div>
+    
+    <br>
+    
+    <div id="divThree">
+      <input type="number" min="0">
+      <button id="buySteamedPorkBun">Steamed Pork Bun</button>
+    </div>
+    <div id="divFour">
+      <input type="number" min="0"><button id="buyEggTart">Egg Tart</button>
+    </div>
+    
+    <br>
+    
+    <div id="divFive">
+      <input type="number" min="0"><button id="buyJasmineTea">Jasmine Tea</button>
+    </div>
+    <div id="divSix">
+      <input type="number" min="0"><button id="buyGreenTea">Green Tea</button>
+    </div>
+    
+    <div id="bottomNavBar">
+      <h3 class="bottom">Subtotal: </h3>
+      <h3 class="bottom">Tax: </h3>
+      <h2 class="bottom">Total: </h2>
+      <button class="bottom">Proceed to Checkout</button>
+    </div>
+    
+    <script src="restaurant.js"></script>
+  </body>
+</html>
