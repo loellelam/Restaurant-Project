@@ -1,6 +1,10 @@
 <html>
   <head>
     <style>
+      #restaurantName {
+        text-align: center;
+        font-size: 5vh;
+      }
       #divOne {
         width: 49%;
         height: 300px;
@@ -29,11 +33,12 @@
     </style>
   </head>
   <body>
-    <h1>Someone's Restaurant</h1>
+    <h1 id="restaurantName">Someone's Restaurant</h1>
     <div id="divOne">
       <h1 id="nameOne"></h1>
       <p id="descripOne"></p>
       <p class="dollarSign">$</p><p class="dollarSign" id="priceOne"></p>
+      <br>
       <input type="number" min="0" id="inputOne">
       <button id="buyOne" onclick="dishOne()">Order</button>
     </div>
@@ -41,6 +46,7 @@
       <h1 id="nameTwo"></h1>
       <p id="descripTwo"></p>
       <p class="dollarSign">$</p><p class="dollarSign" id="priceTwo"></p>
+      <br>
       <input type="number" min="0" id="inputTwo">
       <button id="buyTwo" onclick="dishTwo()">Order</button>
     </div>
