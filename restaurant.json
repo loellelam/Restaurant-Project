@@ -1,0 +1,42 @@
+{
+  "food": [
+    {
+      "name": "Fried Rice",
+      "desc": "Fried Rice with something in it.",
+      "price": 9.39
+    },
+    
+    {
+      "name": "Fried Noodles",
+      "desc": "Fried Noodles with stuff in it.",
+      "price": 9.55
+    },
+    
+    {
+      "name": "Steamed Pork Bun",
+      "desc": "A pork bun that is steamed.",
+      "price": 6.79
+    },
+    
+    {
+      "name": "Egg Tart",
+      "desc": "Egg Yolk Tart",
+      "price": 5.99
+    }
+  ],
+  
+  
+  "drink": [
+    {
+      "name": "Jasmine Tea",
+      "price": 4.49
+    },
+    
+    {
+      "name": "Green Tea",
+      "price": 4.49
+    }
+  ]
+
+
+}
