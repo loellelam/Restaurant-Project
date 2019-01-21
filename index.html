@@ -19,12 +19,12 @@
       }
       #bottomNavBar {
         width: 100%;
-        height: 70px;
+        height: 80px;
         background-color: #ff99f9;
         /*position: fixed;*/
       }
       .bottom {
-        padding-bottom: -10px;
+        display: inline;
       }
     </style>
   </head>
@@ -33,16 +33,16 @@
     <div id="divOne">
       <h1 id="nameOne"></h1>
       <p id="descripOne"></p>
-      <p id="priceOne"></p>
+      <p>$</p><p id="priceOne"></p>
       <input type="number" min="0" id="inputOne">
       <button id="buyOne" onclick="orderOne()">Order</button>
     </div>
     <div id="divTwo">
       <h1 id="nameTwo"></h1>
       <p id="descripTwo"></p>
-      <p id="priceTwo"></p>
+      <p>$</p><p id="priceTwo"></p>
       <input type="number" min="0" id="inputTwo">
-      <button id="buyTwo">Order</button>
+      <button id="buyTwo" onclick="orderTwo()">Order</button>
     </div>
     
     <br>
@@ -65,9 +65,12 @@
     </div>
     
     <div id="bottomNavBar">
-      <span><h3>Subtotal: </h3><h3 id="subtotal"></h3></span>
-      <h3 class="bottom">Tax: </h3>
-      <h2 class="bottom">Total: </h2>
+      <h2 class="bottom">Subtotal: $</h2><h2 class="bottom" id="showSubtotal">0.00</h2>
+      <br>
+      <h3 class="bottom">Tax: $</h3><h3 class="bottom" id="showTax">0.00</h3>
+      <br>
+      <h2 class="bottom">Total: $</h2><h2 class="bottom" id="showTotal">0.00</h2>
+      <br>
       <button class="bottom">Proceed to Checkout</button>
     </div>
     
