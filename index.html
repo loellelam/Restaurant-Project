@@ -33,14 +33,14 @@
     <div id="divOne">
       <h1 id="nameOne"></h1>
       <p id="descripOne"></p>
-      <p>$</p><p class="dollarSign" id="priceOne"></p>
+      <p class="dollarSign">$</p><p class="dollarSign" id="priceOne"></p>
       <input type="number" min="0" id="inputOne">
       <button id="buyOne" onclick="dishOne()">Order</button>
     </div>
     <div id="divTwo">
       <h1 id="nameTwo"></h1>
       <p id="descripTwo"></p>
-      <p>$</p><p id="priceTwo"></p>
+      <p class="dollarSign">$</p><p class="dollarSign" id="priceTwo"></p>
       <input type="number" min="0" id="inputTwo">
       <button id="buyTwo" onclick="dishTwo()">Order</button>
     </div>
@@ -71,7 +71,7 @@
       <br>
       <h2 class="dollarSign">Total: $</h2><h2 class="dollarSign" id="showTotal">0.00</h2>
       <br>
-      <button class="dollarSign">Proceed to Checkout</button>
+      <button id="end" onclick="checkout()">Proceed to Checkout</button>
     </div>
     
     <script src="restaurant.js"></script>
