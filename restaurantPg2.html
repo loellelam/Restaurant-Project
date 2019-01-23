@@ -7,9 +7,9 @@
       <h1 id="title">Order Summary</h1>
       <hr>
       
-      <table>
+      <table id="summaryTable">
         <tr>
-          <td class="tableData">Item</td>
+          <td class="tableData">Dish</td>
           <td class="tableData">Quantity</td>
           <td class="tableData">Price</td>
           <td class="lastColumn">Equals</td>
@@ -34,6 +34,25 @@
     </div>
     
     <script>
+      var num = localStorage.getItem("storeNumberOfItems");
+      window.alert(num);
+      for (var i = 0; i < num; i++) {
+        var tble = document.getElementById('summaryTable');
+        var createRow = document.createElement('tr');
+        tble.appendChild(createRow);
+        var createColumn = document.createElement('td');
+        createRow.appendChild(createColumn);
+        //var text = document.createTextNode("Fried Rice");
+        //createColumn.appendChild(text);
+        
+        var create2Column = document.createElement('td');
+        createRow.appendChild(create2Column);
+        var create3Column = document.createElement('td');
+        createRow.appendChild(create3Column);
+        var create4Column = document.createElement('td');
+        createRow.appendChild(create4Column);
+      }
+        
       document.getElementById('showSubtotal').innerHTML = localStorage.getItem("runningTotal"); //get and show subtotal
       document.getElementById('showTax').innerHTML = localStorage.getItem("tax"); //get and show tax
       document.getElementById('showTotal').innerHTML = localStorage.getItem('total'); //get and show total

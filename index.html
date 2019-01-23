@@ -3,14 +3,18 @@
     <link rel="stylesheet" type="text/css" href="restaurant.css">
   </head>
   <body>
-    <h1 id="restaurantName">Someone's Restaurant</h1>
+    <div id="welcomeImage">
+      <h1 id="restaurantName">Someone's Restaurant</h1>
+    </div>
+    
+    <h1 class="title">Menu</h1>
     <div id="divOne">
-      <h1 id="nameOne"></h1>
-      <p id="descripOne"></p>
+      <h1 id="nameOne" class="center"></h1>
+      <p id="descripOne" class="center"></p>
       <p class="dollarSign">$</p><p class="dollarSign" id="priceOne"></p>
       <br>
       <input type="number" min="0" id="inputOne">
-      <button id="buyOne" onclick="dishOne()">Order</button>
+      <button id="buyOne" onclick="dishOne(), dishOneSummary()">Order</button>
     </div>
     <div id="divTwo">
       <h1 id="nameTwo"></h1>
@@ -18,7 +22,7 @@
       <p class="dollarSign">$</p><p class="dollarSign" id="priceTwo"></p>
       <br>
       <input type="number" min="0" id="inputTwo">
-      <button id="buyTwo" onclick="dishTwo()">Order</button>
+      <button id="buyTwo" onclick="dishTwo(), dishTwoSummary()">Order</button>
     </div>
     
     <br>
