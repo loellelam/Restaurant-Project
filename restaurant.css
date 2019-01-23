@@ -24,7 +24,7 @@ body {
   background-size: 100%;
   border: solid;
   float: left;
-  margin: 3px;
+  margin-left: 3px;
 }
 #divTwo {
   width: 49%;
@@ -33,7 +33,7 @@ body {
   background-size: 100%;
   border: solid;
   float: right;
-  margin: 3px;
+  margin-right: 3px;
 }
 #bottomNavBar {
   width: 100%;
