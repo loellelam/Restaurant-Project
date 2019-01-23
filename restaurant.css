@@ -1,0 +1,55 @@
+#restaurantName {
+  text-align: center;
+  font-size: 5vh;
+  
+}
+#divOne {
+  width: 49%;
+  height: 300px;
+  background-image: url('friedRice.jpg');
+  background-size: 100%;
+  border: solid;
+  float: left;
+}
+#divTwo {
+  width: 49%;
+  height: 300px;
+  background-image: url('friedRice.jpg');
+  background-size: 100%;
+  border: solid;
+  float: right;
+}
+#bottomNavBar {
+  width: 100%;
+  height: 80px;
+  background-color: #ff99f9;
+  /*position: fixed;*/
+}
+.dollarSign {
+  display: inline;
+}
+
+
+#container {
+  width: 80%;
+  min-height: 85%;
+  overflow: auto;
+  margin: auto;
+  margin-top: 2%;
+  border: solid;
+}
+#title {
+  text-align: center;
+}
+table {
+  width: 90%;
+  border: dotted;
+  margin: auto;
+}
+.tableData {
+  border-right: solid;
+  border-bottom: solid;
+}
+.lastColumn {
+  border-bottom: solid;
+}

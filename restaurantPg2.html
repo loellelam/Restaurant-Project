@@ -1,23 +1,58 @@
 <htmL>
   <head>
-    <style>
-      #container {
-        width: 80%;
-        min-height: 85%;
-        overflow: auto;
-        margin: auto;
-        margin-top: 2%;
-        border: solid;
-      }
-      h1 {
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="restaurant.css">
   </head>
   <body>
     <div id="container">
-      <h1>Order Summary</h1>
+      <h1 id="title">Order Summary</h1>
+      <hr>
       
+      <table>
+        <tr>
+          <td class="tableData">Item</td>
+          <td class="tableData">Quantity</td>
+          <td class="tableData">Price</td>
+          <td class="lastColumn">Equals</td>
+        </tr>
+        <tr>
+          <td class="tableData">2nd row</td>
+        </tr>
+      </table>
+      
+      <br><br><br><br><br><br><br><br><br><br><br><br>
+      
+      <h2 class="dollarSign">Subtotal: $</h2><h2 class="dollarSign" id="showSubtotal">0.00</h2>
+      <br>
+      <h3 class="dollarSign">Tax: $</h3><h3 class="dollarSign" id="showTax">0.00</h3>
+      <br>
+      <input type="number" min="0" id="inputTip">
+      <button onclick="tip()">Tip</button>
+      <br>
+      <h2 class="dollarSign">Total: $</h2><h2 class="dollarSign" id="showTotal">0.00</h2>
+      <br>
+      <button onclick="confirmPay()">Confirm</button>
     </div>
+    
+    <script>
+      document.getElementById('showSubtotal').innerHTML = localStorage.getItem("runningTotal"); //get and show subtotal
+      document.getElementById('showTax').innerHTML = localStorage.getItem("tax"); //get and show tax
+      document.getElementById('showTotal').innerHTML = localStorage.getItem('total'); //get and show total
+      
+      function tip() {
+        var userTip = document.getElementById('inputTip').value; //get input value
+        document.getElementById('inputTip').value = ""; //clear input box
+        if (userTip >= 0) { //check for valid input
+          var prevTotal = document.getElementById('showTotal').innerHTML; //get previous total
+          var newTotal = (+userTip + +prevTotal).toFixed(2); //add tip to previous total
+          document.getElementById('showTotal').innerHTML = newTotal; //display new total
+        }
+        else {
+          window.alert("Error. Tip must be a positive whole number.");
+        }
+      }
+      function confirmPay() {
+        window.alert("Thank you for ordering at Someone's Restaurant. We hope you enjoy your meal!")
+      }
+    </script>
   </body>
 </htmL>
