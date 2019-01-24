@@ -21,13 +21,6 @@ localStorage.setItem("runningTotal", 0);
 localStorage.setItem("tax", 0);
 localStorage.setItem("total", 0);
 
-var numberOfItems = 0;
-localStorage.setItem("friedRice", false);
-localStorage.setItem("friedNoodles", false);
-localStorage.setItem("steamedPorkBun", false);
-localStorage.setItem("eggTart", false);
-localStorage.setItem("jasmineTea", false);
-localStorage.setItem("greenTea", false);
 //Global variables----------------------------------------------------------------------------------------------------------------------------------------------------------------
 var callOnceDishOne = 0;
 var callOnceDishTwo = 0;
@@ -35,6 +28,9 @@ var callOnceDishThree = 0;
 var callOnceDishFour = 0;
 var callOnceDishFive = 0;
 var callOnceDishSix = 0;
+
+var arrOfOrdered = [];
+var numberOfOrdered = 0;
 
 //Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
 function dishOne() {
@@ -70,9 +66,11 @@ function dishOneSummary() {
   if (callOnceDishOne === 0) {
     callOnceDishOne++; //makes sure this function is only called once
     
-    localStorage.setItem("friedRice", true);
-    numberOfItems++;
-    localStorage.setItem("storeNumberOfItems", numberOfItems);
+    numberOfOrdered++;
+    localStorage.setItem("storeNumberOfDishes", numberOfOrdered);
+    
+    arrOfOrdered.push("Fried Rice");
+    localStorage.setItem("storeArrOfFood",arrOfOrdered);
   }
   else {
     return;
@@ -83,9 +81,11 @@ function dishTwoSummary() {
   if (callOnceDishTwo === 0) {
     callOnceDishTwo++; //makes sure this function is only called once
     
-    localStorage.setItem("friedNoodles", true);
-    numberOfItems++;
-    localStorage.setItem("storeNumberOfItems", numberOfItems);
+    numberOfOrdered++;
+    localStorage.setItem("storeNumberOfDishes", numberOfOrdered);
+    
+    arrOfOrdered.push("Fried Noodles");
+    localStorage.setItem("storeArrOfFood",arrOfOrdered);
   }
   else {
     return;

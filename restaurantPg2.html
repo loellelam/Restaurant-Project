@@ -35,8 +35,8 @@
     
     <script>
       var num = localStorage.getItem("storeNumberOfItems");
-      window.alert(num);
-      for (var i = 0; i < num; i++) {
+      //window.alert(num);
+      for (var i = 0; i < num; i++) { //for every dish ordered, make a row for it
         var tble = document.getElementById('summaryTable');
         var createRow = document.createElement('tr');
         tble.appendChild(createRow);
@@ -51,6 +51,14 @@
         createRow.appendChild(create3Column);
         var create4Column = document.createElement('td');
         createRow.appendChild(create4Column);
+      }
+      
+      //for every dish, input the values (dish, qty, $, =)
+      var orderedDishes = localStorage.getItem("arrOfOrderedDishes");
+      for (var i = 0; i < orderedDishes.length; i++) {
+        var tble = document.getElementById('summaryTable');
+        var name = orderedDishes[i];
+        window.alert(name);
       }
         
       document.getElementById('showSubtotal').innerHTML = localStorage.getItem("runningTotal"); //get and show subtotal

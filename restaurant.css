@@ -47,7 +47,9 @@ body {
 .dollarSign {
   display: inline;
 }
-
+#price {
+  text-align: center;
+}
 
 #container {
   width: 80%;
