@@ -35,7 +35,7 @@
     
     <script>
       var num = localStorage.getItem("storeNumberOfDishes");
-      //window.alert(num);
+      window.alert(num);
       for (var i = 0; i < num; i++) { //for every dish ordered, make a row for it
         var tble = document.getElementById('summaryTable');
         var createRow = document.createElement('tr');
@@ -52,7 +52,7 @@
         var create4Column = document.createElement('td');
         createRow.appendChild(create4Column);
       }
-      
+      window.alert(localStorage.getItem("runningTotal"));
       //for every dish, input the values (dish, qty, $, =)
       var orderedDishes = localStorage.getItem("arrOfOrderedDishes");
       for (var i = 0; i < orderedDishes.length; i++) {
@@ -60,11 +60,11 @@
         var name = orderedDishes[i];
         window.alert(name);
       }
-        
+      
       document.getElementById('showSubtotal').innerHTML = localStorage.getItem("runningTotal"); //get and show subtotal
       document.getElementById('showTax').innerHTML = localStorage.getItem("tax"); //get and show tax
       document.getElementById('showTotal').innerHTML = localStorage.getItem('total'); //get and show total
-      
+      window.alert(localStorage.getItem("runningTotal"));
       function tip() {
         var userTip = document.getElementById('inputTip').value; //get input value
         document.getElementById('inputTip').value = ""; //clear input box
