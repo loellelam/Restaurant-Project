@@ -41,7 +41,6 @@ function dishOne() {
   if (qty >= 0) { //verify user's input
     //subtotal
     var orderThis = qty * basePrice; //cost of ordered item
-    //var orderThis = qty * 2; //cost of ordered item
     var getRunningTotal = Number(localStorage.getItem("runningTotal")); //get runningTotal from localStorage
     var newRunningTotal = (getRunningTotal + orderThis).toFixed(2); //calculate subtotal
     localStorage.setItem("runningTotal", newRunningTotal); //save subtotal into localStorage

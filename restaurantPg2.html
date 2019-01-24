@@ -52,9 +52,9 @@
         var create4Column = document.createElement('td');
         createRow.appendChild(create4Column);
       }
-      window.alert(localStorage.getItem("runningTotal"));
+      window.alert("please");
       //for every dish, input the values (dish, qty, $, =)
-      var orderedDishes = localStorage.getItem("arrOfOrderedDishes");
+      var orderedDishes = localStorage.getItem("arrOfOrdered"); //WORK HERE IT DOESNT WORK
       for (var i = 0; i < orderedDishes.length; i++) {
         var tble = document.getElementById('summaryTable');
         var name = orderedDishes[i];
@@ -64,7 +64,7 @@
       document.getElementById('showSubtotal').innerHTML = localStorage.getItem("runningTotal"); //get and show subtotal
       document.getElementById('showTax').innerHTML = localStorage.getItem("tax"); //get and show tax
       document.getElementById('showTotal').innerHTML = localStorage.getItem('total'); //get and show total
-      window.alert(localStorage.getItem("runningTotal"));
+      
       function tip() {
         var userTip = document.getElementById('inputTip').value; //get input value
         document.getElementById('inputTip').value = ""; //clear input box
