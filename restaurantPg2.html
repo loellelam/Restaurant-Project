@@ -11,11 +11,8 @@
         <tr>
           <td class="tableData">Dish</td>
           <td class="tableData">Quantity</td>
-          <td class="tableData">Price</td>
-          <td class="lastColumn">Equals</td>
-        </tr>
-        <tr>
-          <td class="tableData">2nd row</td>
+          <td class="tableData">Unit Price</td>
+          <td class="lastColumn">Amount</td>
         </tr>
       </table>
       
@@ -34,31 +31,34 @@
     </div>
     
     <script>
-      var num = localStorage.getItem("storeNumberOfDishes");
-      window.alert(num);
-      for (var i = 0; i < num; i++) { //for every dish ordered, make a row for it
+      var dishCount = localStorage.getItem("storeNumberOfDishes");
+      for (var i = 0; i < dishCount; i++) { //For every dish ordered ...
+        //Make table
         var tble = document.getElementById('summaryTable');
         var createRow = document.createElement('tr');
         tble.appendChild(createRow);
         var createColumn = document.createElement('td');
         createRow.appendChild(createColumn);
-        //var text = document.createTextNode("Fried Rice");
-        //createColumn.appendChild(text);
-        
+        //4 columns
         var create2Column = document.createElement('td');
         createRow.appendChild(create2Column);
         var create3Column = document.createElement('td');
         createRow.appendChild(create3Column);
         var create4Column = document.createElement('td');
         createRow.appendChild(create4Column);
-      }
-      window.alert("please");
-      //for every dish, input the values (dish, qty, $, =)
-      var orderedDishes = localStorage.getItem("arrOfOrdered"); //WORK HERE IT DOESNT WORK
-      for (var i = 0; i < orderedDishes.length; i++) {
-        var tble = document.getElementById('summaryTable');
-        var name = orderedDishes[i];
-        window.alert(name);
+        
+        //Input dish
+        var getFromStorage = localStorage.getItem("storeArrOfFood");
+        var convertDish = JSON.parse(getFromStorage); //converts JSON string into a JS object
+        var name = convertDish[i];
+        var text = document.createTextNode(name);
+        createColumn.appendChild(text);
+        //Input qty
+        var qty = localStorage.getItem("storeQtyOfOne");
+        var text2 = document.createTextNode(qty);
+        create2Column.appendChild(text2);
+        //Input base price
+        //Input amount
       }
       
       document.getElementById('showSubtotal').innerHTML = localStorage.getItem("runningTotal"); //get and show subtotal

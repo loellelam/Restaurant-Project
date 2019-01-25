@@ -3,13 +3,13 @@ xmlhttp.onreadystatechange = function() { //do this function when a certain crit
   if (this.readyState == 4 && this.status == 200) { //"this" refers to the function we are calling; 4 is ready; 200 is ok
     var mydata = JSON.parse(this.responseText); //the json file that we get will be saved as mydata
     
-    document.getElementById('nameOne').innerHTML = mydata.food[0].name;
-    document.getElementById('descripOne').innerHTML = mydata.food[0].desc;
-    document.getElementById('priceOne').innerHTML = mydata.food[0].price;
+    document.getElementById('nameOne').innerHTML = mydata.dish[0].name;
+    document.getElementById('descripOne').innerHTML = mydata.dish[0].desc;
+    document.getElementById('priceOne').innerHTML = mydata.dish[0].price;
     
-    document.getElementById('nameTwo').innerHTML = mydata.food[1].name;
-    document.getElementById('descripTwo').innerHTML = mydata.food[1].desc;
-    document.getElementById('priceTwo').innerHTML = mydata.food[1].price;
+    document.getElementById('nameTwo').innerHTML = mydata.dish[1].name;
+    document.getElementById('descripTwo').innerHTML = mydata.dish[1].desc;
+    document.getElementById('priceTwo').innerHTML = mydata.dish[1].price;
   }
 };
 xmlhttp.open("GET","restaurant.json",true); //get and open the json file
@@ -32,11 +32,21 @@ var callOnceDishSix = 0;
 var arrOfOrdered = [];
 var numberOfOrdered = 0;
 
+var qtyOfOne = 0;
+var qtyOfTwo = 0;
+var qtyOfThree = 0;
+var qtyOfFour = 0;
+var qtyOfFive = 0;
+var qtyOfSix = 0;
 //Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
 function dishOne() {
   var qty = document.getElementById('inputOne').value; //takes user input
   document.getElementById('inputOne').value = ""; //clear input box
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
+
+  //save user's qty to local storage
+  var addMe = +qty + +qtyOfOne;
+  localStorage.setItem("storeQtyOfOne", addMe);
   
   if (qty >= 0) { //verify user's input
     //subtotal
@@ -63,28 +73,16 @@ function dishOne() {
 
 function dishOneSummary() {
   if (callOnceDishOne === 0) {
+    
     callOnceDishOne++; //makes sure this function is only called once
     
     numberOfOrdered++;
     localStorage.setItem("storeNumberOfDishes", numberOfOrdered);
     
     arrOfOrdered.push("Fried Rice");
-    localStorage.setItem("storeArrOfFood",arrOfOrdered);
-  }
-  else {
-    return;
-  }
-}
-
-function dishTwoSummary() {
-  if (callOnceDishTwo === 0) {
-    callOnceDishTwo++; //makes sure this function is only called once
-    
-    numberOfOrdered++;
-    localStorage.setItem("storeNumberOfDishes", numberOfOrdered);
-    
-    arrOfOrdered.push("Fried Noodles");
-    localStorage.setItem("storeArrOfFood",arrOfOrdered);
+    localStorage.setItem("storeArrOfFood", JSON.stringify(arrOfOrdered)); //converts JS arr to JSON string
+    var x = localStorage.getItem("storeArrOfFood");
+  window.alert(x);
   }
   else {
     return;
@@ -117,6 +115,21 @@ function dishTwo() {
   }
   else {
     window.alert("Error. Value must be a positive whole number.");
+  }
+}
+
+function dishTwoSummary() {
+  if (callOnceDishTwo === 0) {
+    callOnceDishTwo++; //makes sure this function is only called once
+    
+    numberOfOrdered++;
+    localStorage.setItem("storeNumberOfDishes", numberOfOrdered);
+    
+    arrOfOrdered.push("Fried Noodles");
+    localStorage.setItem("storeArrOfFood", JSON.stringify(arrOfOrdered)); //converts JS arr to JSON string
+  }
+  else {
+    return;
   }
 }
 

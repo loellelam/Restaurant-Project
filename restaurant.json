@@ -1,5 +1,5 @@
 {
-  "food": [
+  "dish": [
     {
       "name": "Fried Rice",
       "desc": "Fried Rice with something in it.",
@@ -22,11 +22,8 @@
       "name": "Egg Tart",
       "desc": "Egg Yolk Tart",
       "price": 5.99
-    }
-  ],
-  
-  
-  "drink": [
+    },
+
     {
       "name": "Jasmine Tea",
       "price": 4.49
@@ -36,7 +33,6 @@
       "name": "Green Tea",
       "price": 4.49
     }
+
   ]
-
-
 }
