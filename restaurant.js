@@ -32,12 +32,12 @@ var callOnceDishSix = 0;
 var arrOfOrdered = [];
 var numberOfOrdered = 0;
 
+var qtyOfZero = 0;
 var qtyOfOne = 0;
 var qtyOfTwo = 0;
 var qtyOfThree = 0;
 var qtyOfFour = 0;
 var qtyOfFive = 0;
-var qtyOfSix = 0;
 //Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
 function dishOne() {
   var qty = document.getElementById('inputOne').value; //takes user input
@@ -45,8 +45,9 @@ function dishOne() {
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
 
   //save user's qty to local storage
-  var addMe = +qty + +qtyOfOne;
-  localStorage.setItem("storeQtyOfOne", addMe);
+  var addMe = +qty + qtyOfZero;
+  qtyOfZero = addMe;
+  localStorage.setItem("storeQtyOf0", qtyOfZero);
   
   if (qty >= 0) { //verify user's input
     //subtotal
@@ -82,7 +83,6 @@ function dishOneSummary() {
     arrOfOrdered.push("Fried Rice");
     localStorage.setItem("storeArrOfFood", JSON.stringify(arrOfOrdered)); //converts JS arr to JSON string
     var x = localStorage.getItem("storeArrOfFood");
-  window.alert(x);
   }
   else {
     return;
@@ -93,6 +93,11 @@ function dishTwo() {
   var qty = document.getElementById('inputTwo').value; //takes user input
   document.getElementById('inputTwo').value = ""; //clear input box
   var basePrice = document.getElementById('priceTwo').innerHTML; //get price of item
+  
+  //save user's qty to local storage
+  var addMe = +qty + +qtyOfOne;
+  localStorage.setItem("storeQtyOf1", addMe);
+  //save total price of item to localStorage
   
   if (qty >= 0) { //verify user's input
     //subtotal

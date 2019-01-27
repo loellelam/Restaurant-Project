@@ -54,10 +54,12 @@
         var text = document.createTextNode(name);
         createColumn.appendChild(text);
         //Input qty
-        var qty = localStorage.getItem("storeQtyOfOne");
+        var getUserQty = "storeQtyOf" + i;
+        var qty = localStorage.getItem(getUserQty);
         var text2 = document.createTextNode(qty);
         create2Column.appendChild(text2);
         //Input base price
+
         //Input amount
       }
       
