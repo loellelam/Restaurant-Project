@@ -14,6 +14,42 @@
           <td class="tableData">Unit Price</td>
           <td class="lastColumn">Amount</td>
         </tr>
+        <tr>
+          <td>Fried Rice</td>
+          <td id="qtyOfOne"></td>
+          <td id="bpOne"></td>
+          <td id="amountOne"></td>
+        </tr>
+        <tr>
+          <td>Fried Noodles</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Steamed Pork Bun</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Egg Tart</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Jasmine Tea</td>
+          <td></td>
+          <td>$4.49</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Green Tea</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
       </table>
       
       <br><br><br><br><br><br><br><br><br><br><br><br>
@@ -31,7 +67,7 @@
     </div>
     
     <script>
-      var dishCount = localStorage.getItem("storeNumberOfDishes");
+      /*var dishCount = localStorage.getItem("storeNumberOfDishes");
       for (var i = 0; i < dishCount; i++) { //For every dish ordered ...
         //Make table
         var tble = document.getElementById('summaryTable');
@@ -54,13 +90,47 @@
         var text = document.createTextNode(name);
         createColumn.appendChild(text);
         //Input qty
-        var getUserQty = "storeQtyOf" + i;
-        var qty = localStorage.getItem(getUserQty);
-        var text2 = document.createTextNode(qty);
-        create2Column.appendChild(text2);
         //Input base price
-
         //Input amount
+      } */
+      
+      //Input quantity
+      var qtyOne = localStorage.getItem("storeQtyOfOne");
+      var qtytext1 = document.createTextNode(qtyOne);
+      document.getElementById('qtyOfOne').innerHTML = qtytext1.textContent;
+
+      //Input base price
+      var xmlhttp = new XMLHttpRequest(); //gets content of json file
+      xmlhttp.onreadystatechange = function() { //do this function when a certain criteria is met
+        if (this.readyState == 4 && this.status == 200) { //"this" refers to the function we are calling; 4 is ready; 200 is ok
+          var mydata = JSON.parse(this.responseText); //the json file that we get will be saved as mydata
+    
+          document.getElementById('bpOne').innerHTML = "$" + mydata.dish[0].price;
+          /*document.getElementById('bpTwo').innerHTML = mydata.dish[1].price;
+          document.getElementById('priceOne').innerHTML = mydata.dish[0].price;
+          document.getElementById('nameTwo').innerHTML = mydata.dish[1].name;
+          document.getElementById('descripTwo').innerHTML = mydata.dish[1].desc;
+          document.getElementById('priceTwo').innerHTML = mydata.dish[1].price;*/
+        }
+      };
+      xmlhttp.open("GET","restaurant.json",true); //get and open the json file
+      xmlhttp.send(); //send the file to the server
+
+      //Input amount
+      var amtOne = localStorage.getItem("amountOne");
+      var amtText1 = document.createTextNode(amtOne);
+      document.getElementById('amountOne').innerHTML = "$" + amtText1.textContent;
+
+      //Delete items that were not bought
+      var buyOne = localStorage.getItem("boughtOne");
+      if (buyOne === "false") {
+        var deleteMe = document.getElementsByTagName('tr')[1];
+        deleteMe.parentNode.removeChild(deleteMe);
+      }
+      var buyTwo = localStorage.getItem("boughtTwo");
+      if (buyTwo === "false") {
+        var deleteMe = document.getElementsByTagName('tr')[2];
+        deleteMe.parentNode.removeChild(deleteMe);
       }
       
       document.getElementById('showSubtotal').innerHTML = localStorage.getItem("runningTotal"); //get and show subtotal

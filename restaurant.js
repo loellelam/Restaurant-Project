@@ -21,6 +21,12 @@ localStorage.setItem("runningTotal", 0);
 localStorage.setItem("tax", 0);
 localStorage.setItem("total", 0);
 
+localStorage.setItem("boughtOne", false);
+localStorage.setItem("boughtTwo", false);
+localStorage.setItem("boughtThree", false);
+localStorage.setItem("boughtFour", false);
+localStorage.setItem("boughtFive", false);
+localStorage.setItem("boughtSix", false);
 //Global variables----------------------------------------------------------------------------------------------------------------------------------------------------------------
 var callOnceDishOne = 0;
 var callOnceDishTwo = 0;
@@ -38,8 +44,17 @@ var qtyOfTwo = 0;
 var qtyOfThree = 0;
 var qtyOfFour = 0;
 var qtyOfFive = 0;
+
+var amountOne = 0;
+var amountTwo = 0;
+var amountThree = 0;
+var amountFour = 0;
+var amountFive = 0;
+var amountSix = 0;
 //Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
 function dishOne() {
+  localStorage.setItem("boughtOne", true); //tells me user bought this dish
+
   var qty = document.getElementById('inputOne').value; //takes user input
   document.getElementById('inputOne').value = ""; //clear input box
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
@@ -47,11 +62,15 @@ function dishOne() {
   //save user's qty to local storage
   var addMe = +qty + qtyOfZero;
   qtyOfZero = addMe;
-  localStorage.setItem("storeQtyOf0", qtyOfZero);
+  localStorage.setItem("storeQtyOfOne", qtyOfZero);
   
   if (qty >= 0) { //verify user's input
     //subtotal
     var orderThis = qty * basePrice; //cost of ordered item
+      //save amount to localStorage
+      var addMeHere = +orderThis + amountOne;
+      amountOne = addMeHere;
+      localStorage.setItem("amountOne", amountOne);
     var getRunningTotal = Number(localStorage.getItem("runningTotal")); //get runningTotal from localStorage
     var newRunningTotal = (getRunningTotal + orderThis).toFixed(2); //calculate subtotal
     localStorage.setItem("runningTotal", newRunningTotal); //save subtotal into localStorage
@@ -90,10 +109,12 @@ function dishOneSummary() {
 }
 
 function dishTwo() {
+  localStorage.setItem("boughtTwo", true); //tells me user bought this dish
+
   var qty = document.getElementById('inputTwo').value; //takes user input
   document.getElementById('inputTwo').value = ""; //clear input box
   var basePrice = document.getElementById('priceTwo').innerHTML; //get price of item
-  
+
   //save user's qty to local storage
   var addMe = +qty + +qtyOfOne;
   localStorage.setItem("storeQtyOf1", addMe);
