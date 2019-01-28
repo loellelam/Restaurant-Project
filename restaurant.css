@@ -17,24 +17,45 @@ body {
   text-align: center;
   font-size: 5vh;
 }
-#divOne {
-  width: 49%;
-  height: 300px;
-  background-image: url('friedRice.jpg');
-  background-size: 100%;
-  border: solid;
+#menu {
+  width: 100%;
+  height: 1100px;
+
+}
+.divs {
+  width: 33%;
+  height: 550px;
+  /*border: solid;*/
   float: left;
-  margin-left: 3px;
+  text-align: center;
 }
-#divTwo {
-  width: 49%;
+.images {
+  width: 300px;
   height: 300px;
-  background-image: url('friedRice.jpg');
+  margin: auto;
   background-size: 100%;
-  border: solid;
-  float: right;
-  margin-right: 3px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+#image1 {
+  background-image: url('friedRice.jpg');
+}
+#image2 {
+  background-image: url('friedNoodles.jpg');
+}
+#image3 {
+  background-image: url('steamedPorkBun.jpeg');
+}
+#image4 {
+  background-image: url('eggTart.jpg');
+}
+#image5 {
+  background-image: url('jasmineTea.jpg');
+}
+#image6 {
+  background-image: url('greenTea.jpg');
+}
+
 #bottomNavBar {
   width: 100%;
   height: 80px;
@@ -47,10 +68,6 @@ body {
 .dollarSign {
   display: inline;
 }
-#price {
-  text-align: center;
-}
-
 #container {
   width: 80%;
   min-height: 85%;

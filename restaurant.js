@@ -4,12 +4,24 @@ xmlhttp.onreadystatechange = function() { //do this function when a certain crit
     var mydata = JSON.parse(this.responseText); //the json file that we get will be saved as mydata
     
     document.getElementById('nameOne').innerHTML = mydata.dish[0].name;
-    document.getElementById('descripOne').innerHTML = mydata.dish[0].desc;
+    //document.getElementById('descripOne').innerHTML = mydata.dish[0].desc;
     document.getElementById('priceOne').innerHTML = mydata.dish[0].price;
     
     document.getElementById('nameTwo').innerHTML = mydata.dish[1].name;
-    document.getElementById('descripTwo').innerHTML = mydata.dish[1].desc;
+    //document.getElementById('descripTwo').innerHTML = mydata.dish[1].desc;
     document.getElementById('priceTwo').innerHTML = mydata.dish[1].price;
+
+    document.getElementById('nameThree').innerHTML = mydata.dish[2].name;
+    document.getElementById('priceThree').innerHTML = mydata.dish[2].price;
+
+    document.getElementById('nameFour').innerHTML = mydata.dish[3].name;
+    document.getElementById('priceFour').innerHTML = mydata.dish[3].price;
+
+    document.getElementById('nameFive').innerHTML = mydata.dish[4].name;
+    document.getElementById('priceFive').innerHTML = mydata.dish[4].price;
+
+    document.getElementById('nameSix').innerHTML = mydata.dish[5].name;
+    document.getElementById('priceSix').innerHTML = mydata.dish[5].price;
   }
 };
 xmlhttp.open("GET","restaurant.json",true); //get and open the json file
@@ -28,16 +40,6 @@ localStorage.setItem("boughtFour", false);
 localStorage.setItem("boughtFive", false);
 localStorage.setItem("boughtSix", false);
 //Global variables----------------------------------------------------------------------------------------------------------------------------------------------------------------
-var callOnceDishOne = 0;
-var callOnceDishTwo = 0;
-var callOnceDishThree = 0;
-var callOnceDishFour = 0;
-var callOnceDishFive = 0;
-var callOnceDishSix = 0;
-
-var arrOfOrdered = [];
-var numberOfOrdered = 0;
-
 var qtyOfZero = 0;
 var qtyOfOne = 0;
 var qtyOfTwo = 0;
@@ -53,24 +55,26 @@ var amountFive = 0;
 var amountSix = 0;
 //Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
 function dishOne() {
-  localStorage.setItem("boughtOne", true); //tells me user bought this dish
-
   var qty = document.getElementById('inputOne').value; //takes user input
   document.getElementById('inputOne').value = ""; //clear input box
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
-
-  //save user's qty to local storage
-  var addMe = +qty + qtyOfZero;
-  qtyOfZero = addMe;
-  localStorage.setItem("storeQtyOfOne", qtyOfZero);
   
-  if (qty >= 0) { //verify user's input
+  //PREVENT USER FROM ENTERING DECIMAL BY LISTENING FOR IT (decimal key is 46; use keypress) (or use if (thing == "-") || (thing == "."))
+  //also listen for minus 
+  if (qty > 0) { //verify user's input
+    localStorage.setItem("boughtOne", true); //tells me user bought this dish
+    
+    //save user's qty to local storage
+    var addMe = +qty + qtyOfZero;
+    qtyOfZero = addMe;
+    localStorage.setItem("storeQtyOfOne", qtyOfZero);
+
     //subtotal
     var orderThis = qty * basePrice; //cost of ordered item
-      //save amount to localStorage
-      var addMeHere = +orderThis + amountOne;
-      amountOne = addMeHere;
-      localStorage.setItem("amountOne", amountOne);
+        //save amount to localStorage
+        var addMeHere = +orderThis + amountOne;
+        amountOne = addMeHere;
+        localStorage.setItem("amountOne", amountOne);
     var getRunningTotal = Number(localStorage.getItem("runningTotal")); //get runningTotal from localStorage
     var newRunningTotal = (getRunningTotal + orderThis).toFixed(2); //calculate subtotal
     localStorage.setItem("runningTotal", newRunningTotal); //save subtotal into localStorage
@@ -88,23 +92,6 @@ function dishOne() {
   }
   else {
     window.alert("Error. Value must be a positive whole number.");
-  }
-}
-
-function dishOneSummary() {
-  if (callOnceDishOne === 0) {
-    
-    callOnceDishOne++; //makes sure this function is only called once
-    
-    numberOfOrdered++;
-    localStorage.setItem("storeNumberOfDishes", numberOfOrdered);
-    
-    arrOfOrdered.push("Fried Rice");
-    localStorage.setItem("storeArrOfFood", JSON.stringify(arrOfOrdered)); //converts JS arr to JSON string
-    var x = localStorage.getItem("storeArrOfFood");
-  }
-  else {
-    return;
   }
 }
 
@@ -144,27 +131,7 @@ function dishTwo() {
   }
 }
 
-function dishTwoSummary() {
-  if (callOnceDishTwo === 0) {
-    callOnceDishTwo++; //makes sure this function is only called once
-    
-    numberOfOrdered++;
-    localStorage.setItem("storeNumberOfDishes", numberOfOrdered);
-    
-    arrOfOrdered.push("Fried Noodles");
-    localStorage.setItem("storeArrOfFood", JSON.stringify(arrOfOrdered)); //converts JS arr to JSON string
-  }
-  else {
-    return;
-  }
-}
-
 //Proceed to checkout-----------------------------------------------------------------------------------------------------------------------------------------------------------
 function checkout() {
   location.href="restaurantPg2.html";
 }
-
-//Show ordered items------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-//Show total costs------------------------------------------------------------------------------------------------------------------------------------------------------------
