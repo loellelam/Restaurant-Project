@@ -60,7 +60,7 @@ function dishOne() {
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
   
   //PREVENT USER FROM ENTERING DECIMAL BY LISTENING FOR IT (decimal key is 46; use keypress) (or use if (thing == "-") || (thing == "."))
-  //also listen for minus 
+  //also listen for minus
   if (qty > 0) { //verify user's input
     localStorage.setItem("boughtOne", true); //tells me user bought this dish
     
@@ -135,3 +135,16 @@ function dishTwo() {
 function checkout() {
   location.href="restaurantPg2.html";
 }
+
+//Check if JSON file has been updated------------------------------------------------------------------------------------------------------------------------------------------
+var previous = null;
+var current = null;
+setInternal(function() {
+  $.getJSON("restaurant.json",function(json) {
+    current = JSON.stringify(json);
+    if (previous && current && previous !== current) {
+      location.reload();
+    }
+    previous = current;
+  });
+},2000);
