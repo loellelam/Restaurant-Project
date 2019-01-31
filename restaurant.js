@@ -53,14 +53,24 @@ var amountThree = 0;
 var amountFour = 0;
 var amountFive = 0;
 var amountSix = 0;
+//Check keypresses-----------------------------------------------------------------------------------------------------------------------------------------------------
+/*inputOne.onkeypress = function() {
+  if (event.keyCode == 46) { //46 is decimal
+    document.getElementById('inputOne').value = ""; //clear input box
+    window.alert("No decimals!");
+  }
+}*/
+
 //Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
 function dishOne() {
-  var qty = document.getElementById('inputOne').value; //takes user input
+  var qty = document.getElementById('selOne').value; //takes user input
+  //var qty = document.getElementById('inputOne').value; //takes user input
   document.getElementById('inputOne').value = ""; //clear input box
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
   
   //PREVENT USER FROM ENTERING DECIMAL BY LISTENING FOR IT (decimal key is 46; use keypress) (or use if (thing == "-") || (thing == "."))
   //also listen for minus
+  
   if (qty > 0) { //verify user's input
     localStorage.setItem("boughtOne", true); //tells me user bought this dish
     
@@ -103,7 +113,7 @@ function dishTwo() {
   var basePrice = document.getElementById('priceTwo').innerHTML; //get price of item
 
   //save user's qty to local storage
-  var addMe = +qty + +qtyOfOne;
+  var addMe = +qty + qtyOfTwo;
   localStorage.setItem("storeQtyOf1", addMe);
   //save total price of item to localStorage
   
