@@ -64,9 +64,8 @@ var amountSix = 0;
 //Calculate and display costs-----------------------------------------------------------------------------------------------------------------------------------------------------
 function dishOne() {
   var qty = document.getElementById('selOne').value; //takes user input
-  window.alert(qty);
   //var qty = document.getElementById('inputOne').value; //takes user input
-  document.getElementById('inputOne').value = ""; //clear input box
+  //document.getElementById('inputOne').value = ""; //clear input box
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
   
   //PREVENT USER FROM ENTERING DECIMAL BY LISTENING FOR IT (decimal key is 46; use keypress) (or use if (thing == "-") || (thing == "."))
