@@ -68,14 +68,12 @@ function dishOne() {
   //document.getElementById('inputOne').value = ""; //clear input box
   var basePrice = document.getElementById('priceOne').innerHTML; //get price of item
   
-  //PREVENT USER FROM ENTERING DECIMAL BY LISTENING FOR IT (decimal key is 46; use keypress) (or use if (thing == "-") || (thing == "."))
-  //also listen for minus
-  
   if (qty > 0) { //verify user's input
     localStorage.setItem("boughtOne", true); //tells me user bought this dish
-    
+    window.alert("num 1 work");
     //save user's qty to local storage
     var addMe = +qty + qtyOfZero;
+    window.alert("num 2 work");
     qtyOfZero = addMe;
     localStorage.setItem("storeQtyOfOne", qtyOfZero);
 
