@@ -20,6 +20,7 @@ button:hover {
 #restaurantName {
   font-family: 'Staatliches', cursive;
   font-size: 10vh;
+  font-weight: normal;
   color: white;
   text-align: center;
   padding-top: 20%;
