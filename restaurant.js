@@ -19,7 +19,6 @@ xmlhttp.onreadystatechange = function() { //do this function when a certain crit
     document.getElementById('priceFive').innerHTML = mydata.dish[4].price;
   
     document.getElementById('nameSix').innerHTML = mydata.dish[5].name;
-    //document.getElementById('descripOne').innerHTML = mydata.dish[5].desc;
     document.getElementById('priceSix').innerHTML = mydata.dish[5].price;
   }
 };
@@ -221,8 +220,6 @@ function dishFive() {
 
 function dishSix() {
   var qty = document.getElementById('selSix').value; //takes user input
-  //var qty = document.getElementById('inputSix').value; //takes user input
-  //document.getElementById('inputSix').value = ""; //clear input box
   var basePrice = document.getElementById('priceSix').innerHTML; //get price of item
   
   localStorage.setItem("boughtSix", true); //tells me user bought this dish
@@ -253,8 +250,6 @@ function dishSix() {
   localStorage.setItem("total", newTotal); //save total to localStorage
   document.getElementById('showTotal').innerHTML = newTotal; //display total
 }
-
-
 
 //Proceed to checkout-----------------------------------------------------------------------------------------------------------------------------------------------------------
 function checkout() {

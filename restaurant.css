@@ -3,12 +3,12 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 button {
-  /*background-color: #dcb361;*/
   border-color: white;
   font-family: 'Source Sans Pro', sans-serif;
 }
 button:hover {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 2px 3px 5px 0 rgba(0,0,0,0.19);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 2px 3px 5px 0 rgba(0,0,0,0.19); /*for safari*/
 }
 #welcomeImage {
   background-image: url('choppingBoard.jpg');
@@ -30,7 +30,6 @@ button:hover {
 #toMenu {
   width: 70px;
   height: 70px;
-  /*border: solid;*/
   margin: auto;
   margin-top: 15%;
 }
@@ -45,7 +44,6 @@ button:hover {
 .divs {
   width: 33%;
   height: 550px;
-  /*border: solid;*/
   float: left;
   text-align: center;
 }
