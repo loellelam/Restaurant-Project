@@ -259,7 +259,7 @@ function checkout() {
 //Check if JSON file has been updated------------------------------------------------------------------------------------------------------------------------------------------
 var previous = null;
 var current = null;
-setInternal(function() {
+setInterval(function() {
   $.getJSON("restaurant.json",function(json) {
     current = JSON.stringify(json);
     if (previous && current && previous !== current) {
