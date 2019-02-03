@@ -126,18 +126,6 @@
           tDataBpFive.innerHTML = "$" + mydata.dish[4].price;
           tDataNameSix.innerHTML = mydata.dish[5].name;
           tDataBpSix.innerHTML = "$" + mydata.dish[5].price;
-          /*document.getElementById('nameOne').innerHTML = mydata.dish[0].name;
-          document.getElementById('bpOne').innerHTML = "$" + mydata.dish[0].price;
-          document.getElementById('nameTwo').innerHTML = mydata.dish[1].name;
-          document.getElementById('bpTwo').innerHTML = "$" + mydata.dish[1].price;
-          document.getElementById('nameThree').innerHTML = mydata.dish[2].name;
-          document.getElementById('bpThree').innerHTML = "$" + mydata.dish[2].price;
-          document.getElementById('nameFour').innerHTML = mydata.dish[3].name;
-          document.getElementById('bpFour').innerHTML = "$" + mydata.dish[3].price;
-          document.getElementById('nameFive').innerHTML = mydata.dish[4].name;
-          document.getElementById('bpFive').innerHTML = "$" + mydata.dish[4].price;
-          document.getElementById('nameSix').innerHTML = mydata.dish[5].name;
-          document.getElementById('bpSix').innerHTML = "$" + mydata.dish[5].price;*/
         }
       };
       xmlhttp.open("GET","restaurant.json",true); //get and open the json file
@@ -167,7 +155,6 @@
       var buyOne = localStorage.getItem("boughtOne");
       if (buyOne === "false") {
         var deleteMe = document.getElementById('rowOne');
-        //var deleteMe = document.getElementsByTagName('tr')[1];
         deleteMe.parentNode.removeChild(deleteMe);
       }
       var buyTwo = localStorage.getItem("boughtTwo");
@@ -213,7 +200,7 @@
         }
       }
       function confirmPay() {
-        window.alert("Thank you for ordering at Someone's Restaurant. We hope you enjoy your meal!")
+        window.alert("Thank you for ordering at Restaurant Chanceux. We hope you enjoy your meal!")
       }
     </script>
   </body>

@@ -7,6 +7,9 @@ button {
   border-color: white;
   font-family: 'Source Sans Pro', sans-serif;
 }
+button:hover {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2), 2px 3px 5px 0 rgba(0,0,0,0.19);
+}
 #welcomeImage {
   background-image: url('choppingBoard.jpg');
   height: 95%;
