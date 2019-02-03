@@ -1,62 +1,64 @@
 <htmL>
   <head>
     <link rel="stylesheet" type="text/css" href="restaurant.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   </head>
   <body>
     <div id="container">
       <h1 id="title">Order Summary</h1>
-      <hr>
+      <br>
       
       <table id="summaryTable">
         <tr>
-          <td class="tableData">Dish</td>
-          <td class="tableData">Quantity</td>
-          <td class="tableData">Unit Price</td>
-          <td class="lastColumn">Amount</td>
+          <td class="topInfo">Dish</td>
+          <td class="topInfo">Quantity</td>
+          <td class="topInfo">Unit Price</td>
+          <td class="topInfo">Amount</td>
         </tr>
-        <tr>
-          <td>Fried Rice</td>
+        <tr id="rowOne">
+          <td id="nameOne"></td>
           <td id="qtyOfOne"></td>
           <td id="bpOne"></td>
           <td id="amountOne"></td>
         </tr>
-        <tr>
-          <td>Fried Noodles</td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr id="rowTwo">
+          <td id="nameTwo"></td>
+          <td id="qtyOfTwo"></td>
+          <td id="bpTwo"></td>
+          <td id="amountTwo"></td>
         </tr>
-        <tr>
-          <td>Steamed Pork Bun</td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr id="rowThree">
+          <td id="nameThree"></td>
+          <td id="qtyOfThree"></td>
+          <td id="bpThree"></td>
+          <td id="amountThree"></td>
         </tr>
-        <tr>
-          <td>Egg Tart</td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr id="rowFour">
+          <td id="nameFour"></td>
+          <td id="qtyOfFour"></td>
+          <td id="bpFour"></td>
+          <td id="amountFour"></td>
         </tr>
-        <tr>
-          <td>Jasmine Tea</td>
-          <td></td>
-          <td>$4.49</td>
-          <td></td>
+        <tr id="rowFive">
+          <td id="nameFive"></td>
+          <td id="qtyOfFive"></td>
+          <td id="bpFive"></td>
+          <td id="amountFive"></td>
         </tr>
-        <tr>
-          <td>Green Tea</td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr id="rowSix">
+          <td id="nameSix"></td>
+          <td id="qtyOfSix"></td>
+          <td id="bpSix"></td>
+          <td id="amountSix"></td>
         </tr>
       </table>
       
-      <br><br><br><br><br><br><br><br><br><br><br><br>
+      <div id="spacing"></div>
       
+      <div id="finalTotals">
       <h2 class="dollarSign">Subtotal: $</h2><h2 class="dollarSign" id="showSubtotal">0.00</h2>
       <br>
-      <h3 class="dollarSign">Tax: $</h3><h3 class="dollarSign" id="showTax">0.00</h3>
+      <h2 class="dollarSign">Tax: $</h2><h2 class="dollarSign" id="showTax">0.00</h2>
       <br>
       <input type="number" min="0" id="inputTip">
       <button onclick="tip()">Tip</button>
@@ -65,52 +67,77 @@
       <br>
       <button onclick="confirmPay()">Confirm</button>
     </div>
+    </div>
     
     <script>
-      /*var dishCount = localStorage.getItem("storeNumberOfDishes");
-      for (var i = 0; i < dishCount; i++) { //For every dish ordered ...
-        //Make table
-        var tble = document.getElementById('summaryTable');
-        var createRow = document.createElement('tr');
-        tble.appendChild(createRow);
-        var createColumn = document.createElement('td');
-        createRow.appendChild(createColumn);
-        //4 columns
-        var create2Column = document.createElement('td');
-        createRow.appendChild(create2Column);
-        var create3Column = document.createElement('td');
-        createRow.appendChild(create3Column);
-        var create4Column = document.createElement('td');
-        createRow.appendChild(create4Column);
-        
-        //Input dish
-        var getFromStorage = localStorage.getItem("storeArrOfFood");
-        var convertDish = JSON.parse(getFromStorage); //converts JSON string into a JS object
-        var name = convertDish[i];
-        var text = document.createTextNode(name);
-        createColumn.appendChild(text);
-        //Input qty
-        //Input base price
-        //Input amount
-      } */
-      
       //Input quantity
       var qtyOne = localStorage.getItem("storeQtyOfOne");
       var qtytext1 = document.createTextNode(qtyOne);
       document.getElementById('qtyOfOne').innerHTML = qtytext1.textContent;
 
-      //Input base price
+      var qtyTwo = localStorage.getItem("storeQtyOfTwo");
+      var qtytext2 = document.createTextNode(qtyTwo);
+      document.getElementById('qtyOfTwo').innerHTML = qtytext2.textContent;
+
+      var qtyThree = localStorage.getItem("storeQtyOfThree");
+      var qtytext3 = document.createTextNode(qtyThree);
+      document.getElementById('qtyOfThree').innerHTML = qtytext3.textContent;
+
+      var qtyFour = localStorage.getItem("storeQtyOfFour");
+      var qtytext4 = document.createTextNode(qtyFour);
+      document.getElementById('qtyOfFour').innerHTML = qtytext4.textContent;
+
+      var qtyFive = localStorage.getItem("storeQtyOfFive");
+      var qtytext5 = document.createTextNode(qtyFive);
+      document.getElementById('qtyOfFive').innerHTML = qtytext5.textContent;
+
+      var qtySix = localStorage.getItem("storeQtyOfSix");
+      var qtytext6 = document.createTextNode(qtySix);
+      document.getElementById('qtyOfSix').innerHTML = qtytext6.textContent;
+
+      //Input name and base price
+      var tDataNameOne = document.getElementById('nameOne');
+      var tDataBpOne = document.getElementById('bpOne');
+      var tDataNameTwo = document.getElementById('nameTwo');
+      var tDataBpTwo = document.getElementById('bpTwo');
+      var tDataNameThree = document.getElementById('nameThree');
+      var tDataBpThree = document.getElementById('bpThree');
+      var tDataNameFour = document.getElementById('nameFour');
+      var tDataBpFour = document.getElementById('bpFour');
+      var tDataNameFive = document.getElementById('nameFive');
+      var tDataBpFive = document.getElementById('bpFive');
+      var tDataNameSix = document.getElementById('nameSix');
+      var tDataBpSix = document.getElementById('bpSix');
+
       var xmlhttp = new XMLHttpRequest(); //gets content of json file
       xmlhttp.onreadystatechange = function() { //do this function when a certain criteria is met
         if (this.readyState == 4 && this.status == 200) { //"this" refers to the function we are calling; 4 is ready; 200 is ok
           var mydata = JSON.parse(this.responseText); //the json file that we get will be saved as mydata
-    
+
+          tDataNameOne.innerHTML = mydata.dish[0].name;
+          tDataBpOne.innerHTML = "$" + mydata.dish[0].price;
+          tDataNameTwo.innerHTML = mydata.dish[1].name;
+          tDataBpTwo.innerHTML = "$" + mydata.dish[1].price;
+          tDataNameThree.innerHTML = mydata.dish[2].name;
+          tDataBpThree.innerHTML = "$" + mydata.dish[2].price;
+          tDataNameFour.innerHTML = mydata.dish[3].name;
+          tDataBpFour.innerHTML = "$" + mydata.dish[3].price;
+          tDataNameFive.innerHTML = mydata.dish[4].name;
+          tDataBpFive.innerHTML = "$" + mydata.dish[4].price;
+          tDataNameSix.innerHTML = mydata.dish[5].name;
+          tDataBpSix.innerHTML = "$" + mydata.dish[5].price;
+          /*document.getElementById('nameOne').innerHTML = mydata.dish[0].name;
           document.getElementById('bpOne').innerHTML = "$" + mydata.dish[0].price;
-          /*document.getElementById('bpTwo').innerHTML = mydata.dish[1].price;
-          document.getElementById('priceOne').innerHTML = mydata.dish[0].price;
           document.getElementById('nameTwo').innerHTML = mydata.dish[1].name;
-          document.getElementById('descripTwo').innerHTML = mydata.dish[1].desc;
-          document.getElementById('priceTwo').innerHTML = mydata.dish[1].price;*/
+          document.getElementById('bpTwo').innerHTML = "$" + mydata.dish[1].price;
+          document.getElementById('nameThree').innerHTML = mydata.dish[2].name;
+          document.getElementById('bpThree').innerHTML = "$" + mydata.dish[2].price;
+          document.getElementById('nameFour').innerHTML = mydata.dish[3].name;
+          document.getElementById('bpFour').innerHTML = "$" + mydata.dish[3].price;
+          document.getElementById('nameFive').innerHTML = mydata.dish[4].name;
+          document.getElementById('bpFive').innerHTML = "$" + mydata.dish[4].price;
+          document.getElementById('nameSix').innerHTML = mydata.dish[5].name;
+          document.getElementById('bpSix').innerHTML = "$" + mydata.dish[5].price;*/
         }
       };
       xmlhttp.open("GET","restaurant.json",true); //get and open the json file
@@ -120,16 +147,52 @@
       var amtOne = localStorage.getItem("amountOne");
       var amtText1 = document.createTextNode(amtOne);
       document.getElementById('amountOne').innerHTML = "$" + amtText1.textContent;
+      var amtTwo = localStorage.getItem("amountTwo");
+      var amtText2 = document.createTextNode(amtTwo);
+      document.getElementById('amountTwo').innerHTML = "$" + amtText2.textContent;
+      var amtThree = localStorage.getItem("amountThree");
+      var amtText3 = document.createTextNode(amtThree);
+      document.getElementById('amountThree').innerHTML = "$" + amtText3.textContent;
+      var amtFour = localStorage.getItem("amountFour");
+      var amtText4 = document.createTextNode(amtFour);
+      document.getElementById('amountFour').innerHTML = "$" + amtText4.textContent;
+      var amtFive = localStorage.getItem("amountFive");
+      var amtText5 = document.createTextNode(amtFive);
+      document.getElementById('amountFive').innerHTML = "$" + amtText5.textContent;
+      var amtSix = localStorage.getItem("amountSix");
+      var amtText6 = document.createTextNode(amtSix);
+      document.getElementById('amountSix').innerHTML = "$" + amtText6.textContent;
 
       //Delete items that were not bought
       var buyOne = localStorage.getItem("boughtOne");
       if (buyOne === "false") {
-        var deleteMe = document.getElementsByTagName('tr')[1];
+        var deleteMe = document.getElementById('rowOne');
+        //var deleteMe = document.getElementsByTagName('tr')[1];
         deleteMe.parentNode.removeChild(deleteMe);
       }
       var buyTwo = localStorage.getItem("boughtTwo");
       if (buyTwo === "false") {
-        var deleteMe = document.getElementsByTagName('tr')[2];
+        var deleteMe = document.getElementById('rowTwo');
+        deleteMe.parentNode.removeChild(deleteMe);
+      }
+      var buyThree = localStorage.getItem("boughtThree");
+      if (buyThree === "false") {
+        var deleteMe = document.getElementById('rowThree');
+        deleteMe.parentNode.removeChild(deleteMe);
+      }
+      var buyFour = localStorage.getItem("boughtFour");
+      if (buyFour === "false") {
+        var deleteMe = document.getElementById('rowFour');
+        deleteMe.parentNode.removeChild(deleteMe);
+      }
+      var buyFive = localStorage.getItem("boughtFive");
+      if (buyFive === "false") {
+        var deleteMe = document.getElementById('rowFive');
+        deleteMe.parentNode.removeChild(deleteMe);
+      }
+      var buySix = localStorage.getItem("boughtSix");
+      if (buySix === "false") {
+        var deleteMe = document.getElementById('rowSix');
         deleteMe.parentNode.removeChild(deleteMe);
       }
       

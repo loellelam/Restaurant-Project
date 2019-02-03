@@ -1,5 +1,11 @@
 body {
   margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+button {
+  /*background-color: #dcb361;*/
+  border-color: white;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 #welcomeImage {
   background-image: url('choppingBoard.jpg');
@@ -10,6 +16,7 @@ body {
 }
 #restaurantName {
   font-size: 10vh;
+  color: white;
   text-align: center;
   padding-top: 20%;
 }
@@ -17,10 +24,20 @@ body {
   text-align: center;
   font-size: 5vh;
 }
+#toMenu {
+  width: 70px;
+  height: 70px;
+  /*border: solid;*/
+  margin: auto;
+  margin-top: 15%;
+}
+#toMenu img {
+  width: 70px;
+  height: 70px;
+}
 #menu {
   width: 100%;
   height: 1100px;
-
 }
 .divs {
   width: 33%;
@@ -36,6 +53,7 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 #image1 {
   background-image: url('friedRice.jpg');
@@ -58,16 +76,27 @@ body {
 
 #bottomNavBar {
   width: 100%;
-  height: 80px;
-  background-color: #ff99f9;
-  /*position: fixed;*/
+  height: 40px;
+  background-color: #dcb361;
+  position: fixed;
+  bottom: 0;
 }
-.center {
+.floatMe {
+  width: 25%;
+  height: 30px;
+  float: left;
   text-align: center;
+  padding-top: 5px;
 }
 .dollarSign {
   display: inline;
 }
+#end {
+  margin-top: 0.3vh;
+  background-color: #dcb361;
+}
+
+/*Page 2-----------------------------------------------------------------------------------------------------------------------------------------------*/
 #container {
   width: 80%;
   min-height: 85%;
@@ -78,16 +107,25 @@ body {
 }
 #title {
   text-align: center;
+  font-weight: bold;
 }
 table {
   width: 90%;
-  border: dotted;
   margin: auto;
+  text-align: center;
+  border-collapse: collapse;
 }
-.tableData {
-  border-right: solid;
-  border-bottom: solid;
+.topInfo {
+  background-color: #dcb361;
+  font-weight: bold;
+  width: 25%;
 }
-.lastColumn {
-  border-bottom: solid;
+#spacing {
+  width: 20%;
+  height: 40%;
+}
+#finalTotals {
+  width: 100%;
+  height: 15%;
+  text-align: center;
 }

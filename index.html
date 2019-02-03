@@ -2,16 +2,17 @@
   <head>
     <link rel="stylesheet" type="text/css" href="restaurant.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
   </head>
   <body>
     <div id="welcomeImage">
-      <h1 id="restaurantName">Someone's Restaurant</h1>
+      <h1 id="restaurantName">Lucky Restaurant</h1>
       
-      <button>v</button>
+      <div id="toMenu"><a href="#menuTitle" title="Go to Menu"><img src="ARROW.PNG"></a></div>
     </div>
     
     <br>
-    <h1 class="title">Menu</h1>
+    <h1 class="title" id="menuTitle">Menu</h1>
 
     <div id="menu">
 
@@ -103,7 +104,6 @@
       <!--<p id="descripSix"></p>-->
       <span id="spanSix"><p class="dollarSign">$</p><p class="dollarSign" id="priceSix"></p></span>
       <br><br>
-      <!--<input type="number" min="0" id="inputSix" placeholder="Enter quantity here" class="inputs">-->
       <select id="selSix">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -117,15 +117,12 @@
     </div>
     
     <div id="bottomNavBar">
-      <h2 class="dollarSign">Subtotal: $</h2><h2 class="dollarSign" id="showSubtotal">0.00</h2>
-      <br>
-      <h3 class="dollarSign">Tax: $</h3><h3 class="dollarSign" id="showTax">0.00</h3>
-      <br>
-      <h2 class="dollarSign">Total: $</h2><h2 class="dollarSign" id="showTotal">0.00</h2>
-      <br>
-      <button id="end" onclick="checkout()">Proceed to Checkout</button>
+      <div class="floatMe"><h2 class="dollarSign">Subtotal: $</h2><h2 class="dollarSign" id="showSubtotal">0.00</h2></div>
+      <div class="floatMe"><h2 class="dollarSign">Tax: $</h2><h2 class="dollarSign" id="showTax">0.00</h2></div>
+      <div class="floatMe"><h2 class="dollarSign">Total: $</h2><h2 class="dollarSign" id="showTotal">0.00</h2></div>
+      <div class="floatMe"><button id="end" onclick="checkout()">Proceed to Checkout</button></div>
     </div>
-    
+    <br>
     <script src="restaurant.js"></script>
   </body>
 </html>
