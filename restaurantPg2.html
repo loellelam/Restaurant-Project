@@ -60,12 +60,19 @@
       <br>
       <h2 class="dollarSign">Tax: $</h2><h2 class="dollarSign" id="showTax">0.00</h2>
       <br>
-      <input type="number" min="0" id="inputTip">
-      <button onclick="tip()">Tip</button>
-      <br>
+      <h2 class="dollarSign">Tip: </h2>
+      <button onclick="tenPercent()">+10%</button>
+      <button onclick="fifteenPercent()">+15%</button>
+      <button onclick="twentyPercent()">+20%</button>
+      <!--<input type="number" min="0" id="inputTip">
+      <button onclick="tip()">Tip</button>-->
+      <br><br><hr>     
       <h2 class="dollarSign">Total: $</h2><h2 class="dollarSign" id="showTotal">0.00</h2>
       <br>
       <button onclick="confirmPay()">Confirm</button>
+      <br>
+      <br>
+      <br>
     </div>
     </div>
     
@@ -187,7 +194,22 @@
       document.getElementById('showTax').innerHTML = localStorage.getItem("tax"); //get and show tax
       document.getElementById('showTotal').innerHTML = localStorage.getItem('total'); //get and show total
       
-      function tip() {
+      function tenPercent() {
+        var prevTotal = document.getElementById('showSubtotal').innerHTML; //get previous total
+        var newTotal = (prevTotal * 1.1).toFixed(2); //add tip to previous total
+        document.getElementById('showTotal').innerHTML = newTotal; //display new total
+      }
+      function fifteenPercent() {
+        var prevTotal = document.getElementById('showSubtotal').innerHTML; //get previous total
+        var newTotal = (prevTotal * 1.15).toFixed(2); //add tip to previous total
+        document.getElementById('showTotal').innerHTML = newTotal; //display new total
+      }
+      function twentyPercent() {
+        var prevTotal = document.getElementById('showSubtotal').innerHTML; //get previous total
+        var newTotal = (prevTotal * 1.2).toFixed(2); //add tip to previous total
+        document.getElementById('showTotal').innerHTML = newTotal; //display new total
+      }
+      /*function tip() {
         var userTip = document.getElementById('inputTip').value; //get input value
         document.getElementById('inputTip').value = ""; //clear input box
         if (userTip >= 0) { //check for valid input
@@ -198,7 +220,8 @@
         else {
           window.alert("Error. Tip must be a positive number.");
         }
-      }
+      }*/
+
       function confirmPay() {
         window.alert("Thank you for ordering at Restaurant Chanceux. We hope you enjoy your meal!")
       }

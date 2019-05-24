@@ -3,7 +3,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 button {
-  border-color: white;
+  border-color: #fffcf7;
   font-family: 'Source Sans Pro', sans-serif;
 }
 button:hover {
@@ -125,10 +125,11 @@ table {
 }
 #spacing {
   width: 20%;
-  height: 40%;
+  height: 28%;
 }
 #finalTotals {
-  width: 100%;
+  width: 20%;
   height: 15%;
+  margin: auto;
   text-align: center;
 }
